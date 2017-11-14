@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from random import random
+from random import randint
 import math
 
 points_x = []
@@ -8,10 +8,10 @@ points_y = []
 def rand_cluster(n,r):
     x,y = 0,0
     for i in range(n):
-        theta = 2*math.pi*random()
-        s = r*random()
-        points_x.append(x+s*math.cos(theta))
-    	points_y.append(y+s*math.sin(theta))
+        # theta = 2*math.pi*random()
+        # s = r*random()
+        points_x.append(randint(-2000,2000))
+    	points_y.append(randint(-2000,2000))
 
 with open("input_files/mu_x.txt") as mu:
 	data = mu.readlines()
@@ -32,7 +32,7 @@ def write_into_file():
 			the_file.write(str(i)+'\n')
 
 
-rand_cluster(100,30)
+rand_cluster(1000,5000)
 write_into_file()
 plt.scatter(points_x,points_y,c='b',s=70)
 plt.scatter(mu_x,mu_y,s=180,marker='^',c="yellow")
