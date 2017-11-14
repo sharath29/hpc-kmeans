@@ -61,36 +61,9 @@ fig = plt.figure()
 
 # plt.show()
 
-def write_into_file():
-	with open('x.txt', 'r+') as the_file:
-		the_file.truncate()
-		for i in points_x:
-			the_file.write(str(i)+'\n')
-
-	with open('y.txt', 'r+') as the_file:
-		the_file.truncate()
-		for i in points_y:
-			the_file.write(str(i)+'\n')
 
 
-del points_y[:]
-del points_x[:]
-rand_cluster(100,25)
-write_into_file()
-plt.scatter(points_x,points_y,c='b',s=70)
-plt.scatter(mu_x,mu_y,s=180,marker='^',c="yellow")
+plt.scatter(x,y,c=gr,s=70)
+plt.scatter(mu_x_out,mu_y_out,s=180,marker='^',c="yellow")
 plt.show()
-
-
-# while 1:
-# 	print "\ninput graph:1\noutput graph:2\n"
-# 	temp = int(input())
-# 	if temp == 1:
-# 		plt.scatter(x,y,c='b',s=70)
-# 		plt.scatter(mu_x,mu_y,s=180,marker='^',c="yellow")
-# 		plt.show()
-# 	else:
-# 		plt.scatter(x,y,c=gr,s=70)
-# 		plt.scatter(mu_x_out,mu_y_out,s=180,marker='^',c="yellow")
-# 		plt.show()
 
