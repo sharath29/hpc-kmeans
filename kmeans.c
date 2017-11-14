@@ -126,7 +126,7 @@ void read_data(float **x, float **y, float **mu_x, float **mu_y, int *n, int *k)
   int i;
 
   *n = 0;
-  fp = fopen("x.txt", "r");
+  fp = fopen("input_files/x.txt", "r");
   while(fgets(buf, 64, fp) != NULL){
     *n += 1;
     *x = (float*) realloc(*x, (*n)*sizeof(float));
@@ -135,7 +135,7 @@ void read_data(float **x, float **y, float **mu_x, float **mu_y, int *n, int *k)
   fclose(fp);
 
   i = 0;
-  fp = fopen("y.txt", "r");
+  fp = fopen("input_files/y.txt", "r");
   while(fgets(buf, 64, fp) != NULL){
     i += 1;
     *y = (float*) realloc(*y, i*sizeof(float));
@@ -150,7 +150,7 @@ void read_data(float **x, float **y, float **mu_x, float **mu_y, int *n, int *k)
   }
   
   *k = 0;
-  fp = fopen("mu_x.txt", "r");
+  fp = fopen("input_files/mu_x.txt", "r");
   while(fgets(buf, 64, fp) != NULL){
     *k += 1;
     *mu_x = (float*) realloc(*mu_x, (*k)*sizeof(float));
@@ -159,7 +159,7 @@ void read_data(float **x, float **y, float **mu_x, float **mu_y, int *n, int *k)
   fclose(fp);
   
   i = 0;
-  fp = fopen("mu_y.txt", "r");
+  fp = fopen("input_files/mu_y.txt", "r");
   while(fgets(buf, 64, fp) != NULL){
     i += 1;
     *mu_y = (float*) realloc(*mu_y, i*sizeof(float));
@@ -178,17 +178,17 @@ void print_results(int *group, float *mu_x, float *mu_y, int n, int k){
   FILE *fp;
   int i;
 
-  fp = fopen("group_out.txt", "w");
+  fp = fopen("output_files/group_out.txt", "w");
   for(i = 0; i < n; ++i)
     fprintf(fp, "%d\n", group[i]);
   fclose(fp);
   
-  fp = fopen("mu_x_out.txt", "w");
+  fp = fopen("output_files/mu_x_out.txt", "w");
   for(i = 0; i < k; ++i)
     fprintf(fp, "%0.3f\n", mu_x[i]);
   fclose(fp);
   
-  fp = fopen("mu_y_out.txt", "w");
+  fp = fopen("output_files/mu_y_out.txt", "w");
   for(i = 0; i < k; ++i)
     fprintf(fp, "%0.3f\n", mu_y[i]);
   fclose(fp);
